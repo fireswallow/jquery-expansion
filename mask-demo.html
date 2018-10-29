@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+
+
+<div>
+    <div id="master-panel" class="aa" style="width: 400px; height: 300px; border: 1px solid crimson;">
+        <p>《木兰花令》 纳兰性德</p>
+        <p>人生若只如初见，何事秋风悲画扇？</p>
+        <p>等闲变却故人心，却道故人心易变。</p>
+        <p>骊山语罢清宵半，泪雨零铃终不怨。</p>
+        <p>何如薄倖锦衣郎，比翼连枝当日愿！</p>
+        <p>
+            <button id="test-button">Test</button>
+        </p>
+    </div>
+
+    <div>
+        <button id="show-mask">显示mask</button>
+        <button id="close-mask">关闭mask</button>
+    </div>
+</div>
+</body>
+
+<script src="jquery/jquery-1.11.3.min.js"></script>
+<script src="dist/swallow-mask.js"></script>
+<script>
+    (function ($) {
+        $(function ($) {
+
+            $("#show-mask").on("click", function () {
+                MaskFactory.forkMask().show();
+            });
+
+            $("#close-mask").on("click", function () {
+                MaskFactory.forkMask($("#master-panel")).close();
+            });
+
+            $("#test-button").on("click", function () {
+                alert(55);
+            });
+        });
+    })(jQuery);
+</script>
+</html>

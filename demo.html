@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<ul id="firstList">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+</ul>
+<ul id="secondList">
+    <li>blue</li>
+    <li>green</li>
+</ul>
+
+<p id="unselect">
+    gkls时光飞逝的都是风景噢判断是否<br>
+    时光飞逝的都是风景噢判断是否<br>时光飞逝的都是风景噢判断是否<br>
+    时光飞逝的都是风景噢判断是否<br>
+
+</p>
+
+
+<div id="peanutButter">
+    <div id="jelly" class=".jellyTime"></div>
+</div>
+</body>
+
+<script src="jquery/jquery-1.11.3.min.js"></script>
+<script src="dist/jquery-expansion.js"></script>
+<script>
+    $(function () {
+
+
+
+
+
+        $('li', '#firstList').each(function () {
+            console.log($(this).html());
+        });
+
+
+        $("#unselect").unSelectText().css("color", "green");
+
+        // Let's try some benchmarks!
+        var iterations = 10000, i;
+        console.time('Fancy');
+        for (i = 0; i < iterations; i++) {
+// This falls back to a SLOW JavaScript dom traversal
+            $('#peanutButter div:first');
+        }
+        console.timeEnd('Fancy');
+        console.time('Parent-child');
+        for (i = 0; i < iterations; i++) {
+// Better, but still slow
+            $('#peanutButter div');
+        }
+        console.timeEnd('Parent-child');
+        console.time('Parent-child by class');
+        for (i = 0; i < iterations; i++) {
+// Some browsers are a bit faster on this one
+            $('#peanutButter .jellyTime');
+        }
+        console.timeEnd('Parent-child by class');
+        console.time('By class name');
+
+        for (i = 0; i < iterations; i++) {
+// Even better
+            $('.jellyTime');
+        }
+        console.timeEnd('By class name');
+        console.time('By id');
+        for (i = 0; i < iterations; i++) {
+// Best
+            $('#jelly');
+        }
+        console.timeEnd('By id');
+    });
+</script>
+</html>
