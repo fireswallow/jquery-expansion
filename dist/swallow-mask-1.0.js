@@ -74,7 +74,7 @@ var MaskFactory = (function ($) {
         },
 
         //获取默认的$master
-        defaultMasterEle: function () {
+        defaultMaster: function () {
             return $(document);
         },
 
@@ -86,7 +86,7 @@ var MaskFactory = (function ($) {
             }
 
             if (!$master || $master.length === 0) {
-                $master = this.defaultMasterEle();
+                $master = this.defaultMaster();
             }
 
             var swallowMask = this.getMask($master);
@@ -183,7 +183,7 @@ var MaskFactory = (function ($) {
          */
         forkMask: function ($master, maskConfig) {
             if (!$master || $master.length === 0) {
-                $master = this.defaultMasterEle();
+                $master = this.defaultMaster();
             }
             var swallowMask = this.getMask($master);
             if (swallowMask && (swallowMask instanceof SwallowMask)) {

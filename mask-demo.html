@@ -28,13 +28,16 @@
 </body>
 
 <script src="jquery/jquery-1.11.3.min.js"></script>
-<script src="dist/swallow-mask.js"></script>
+<script src="dist/swallow-mask-2.0.js"></script>
 <script>
     (function ($) {
         $(function ($) {
 
             $("#show-mask").on("click", function () {
-                MaskFactory.forkMask($("#master-panel")).show();
+                MaskFactory.forkMask().show();
+                setTimeout(function () {
+                    MaskFactory.forkMask().close();
+                },3000)
             });
 
             $("#close-mask").on("click", function () {
