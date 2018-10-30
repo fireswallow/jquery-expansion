@@ -1,3 +1,9 @@
+/**
+ * (1)当前插件不支持IE8及以下.
+ * (2)尽量不要创建新的mask
+ * @author lightswallow@163.com
+ */
+
 'use strict';
 
 if (typeof jQuery === 'undefined') {
@@ -27,6 +33,7 @@ var MaskFactory = (function ($) {
                 item.close();
             });
             this.show();
+            return this;
         },
         close: function (remove) {
             this.getMaskEle().hide();

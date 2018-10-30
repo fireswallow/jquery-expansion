@@ -22,6 +22,7 @@
     <div>
         <button id="show-mask">显示mask</button>
         <button id="close-mask">关闭mask</button>
+        <button id="destroy-mask">销毁mask</button>
     </div>
 </div>
 </body>
@@ -33,11 +34,15 @@
         $(function ($) {
 
             $("#show-mask").on("click", function () {
-                MaskFactory.forkMask().show();
+                MaskFactory.forkMask($("#master-panel")).show();
             });
 
             $("#close-mask").on("click", function () {
                 MaskFactory.forkMask($("#master-panel")).close();
+            });
+
+            $("#destroy-mask").on("click", function () {
+                MaskFactory.forkMask($("#master-panel")).destroy();
             });
 
             $("#test-button").on("click", function () {
